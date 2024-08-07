@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Privée - Plateforme d'Entraide Participative</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6ebee;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #fff;
+            border-right: 1px solid #e0e0e0;
+        }
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        #chat {
+            flex-grow: 1;
+            overflow-y: scroll;
+            padding: 20px;
+            background-color: #e6ebee;
+        }
+        .message {
+            max-width: 60%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .message.user {
+            background-color: #3390ec;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .message.system {
+            background-color: #fff;
+            align-self: flex-start;
+        }
+        #message-form {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+        }
+        #message-input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #f0f2f5;
+        }
+        button {
+            background-color: #3390ec;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+
+        .nav-bar {
+            background-color: #3390ec;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-bar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .nav-bar .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .container {
+            height: calc(100vh - 50px); /* Ajuster la hauteur pour la nav barre */
+        }
+
+        @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: 100px;
+    }
+    .message {
+        max-width: 80%;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="menu-icon">☰</div>
+        <h1>Discussion Privée</h1>
+        <div>👤</div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Espace pour la liste des contacts ou des discussions -->
+        </div>
+        <div class="chat-container">
+            <div id="chat"></div>
+            <form id="message-form">
+                <input type="text" id="message-input" placeholder="Écrivez un message..." required>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const userId = new URLSearchParams(window.location.search).get('id');
+        const chat = document.getElementById('chat');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = messageInput.value;
+            if (message.trim() !== '') {
+                addMessage('Vous', message, 'user');
+                messageInput.value = '';
+            }
+        });
+
+        function addMessage(sender, text, type) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', type);
+            messageElement.textContent = `${sender}: ${text}`;
+            chat.appendChild(messageElement);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Message de bienvenue
+        addMessage('Système', `Bienvenue dans votre espace de discussion privé ! Votre ID unique est ${userId}`, 'system');
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme de Crowdfunding Participative</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut" href="../picture/img.jpg">
+</head>
+<body>
+
+    <header>
+        <h1>Plateforme d'Entraide Participative pour les timides mdr</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="forum.html">Forum Public</a></li>
+                <li><a href="private.html">Espace Privé</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">se connecter</a></li>
+                <li><a href="register.html">inscription</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h2>Bienvenue sur notre plateforme d'entraide</h2>
+            <p>Ici, vous pouvez poser vos problèmes et trouver de l'aide auprès de notre communauté bienveillante.</p>
+        </section>
+
+        <section id="recent-posts">
+            <h2>Discussions Récentes</h2>
+            <div class="post">
+                <h3>Besoin d'aide pour un projet de crowdfunding</h3>
+                <p>Posté par: Jean D. | Catégorie: Financement</p>
+                <a href="forum.html#post1">Voir la discussion</a>
+            </div>
+            <div class="post">
+                <h3>Recherche conseils en développement web</h3>
+                <p>Posté par: Marie L. | Catégorie: Technologie</p>
+                <a href="forum.html#post2">Voir la discussion</a>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <h2>Comment ça marche ?</h2>
+            <ol>
+                <li>Inscrivez-vous sur la plateforme</li>
+                <li>Posez votre question ou votre problème dans le forum public</li>
+                <li>Recevez des réponses et des conseils de la communauté</li>
+                <li>Pour des discussions plus privées, utilisez notre espace privé</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plateforme d'Entraide Participative. Tous droits réservés par SEO.</p>
+        <p>je remercie mon voisin oussene pour sa confiance qu il me porte</p>
+    </footer>
+   
+
+    <script>
+        function addComment(section) {
+            const commentsList = document.getElementById(`${section}-comments`);
+            const textarea = commentsList.nextElementSibling;
+            const comment = textarea.value.trim();
+            
+            if (comment) {
+                const li = document.createElement('li');
+                li.textContent = comment;
+                commentsList.appendChild(li);
+                textarea.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

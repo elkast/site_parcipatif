@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Public - Plateforme d'Entraide Participative</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Forum Public</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="forum.html">Forum Public</a></li>
+                <li><a href="private.html">Espace Privé</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="forum-posts">
+            <h2>Discussions Publiques</h2>
+            <div class="post" id="post1">
+                <h3>Besoin d'aide pour un projet de crowdfunding</h3>
+                <p>Posté par: Jean D. | Catégorie: Financement</p>
+                <p>Bonjour à tous, je cherche des conseils pour lancer ma campagne de crowdfunding...</p>
+                <div class="comments">
+                    <h4>Commentaires</h4>
+                    <ul>
+                        <li>Marie L.: Avez-vous pensé à utiliser les réseaux sociaux pour promouvoir votre campagne ?</li>
+                        <li>Pierre M.: Je recommande de bien définir vos objectifs et récompenses.</li>
+                    </ul>
+                    <textarea placeholder="Ajoutez votre commentaire"></textarea>
+                    <button onclick="addComment('post1')">Commenter</button>
+                </div>
+            </div>
+            <div class="post" id="post2">
+                <h3>Recherche conseils en développement web</h3>
+                <p>Posté par: Marie L. | Catégorie: Technologie</p>
+                <p>Je débute en développement web et j'aimerais savoir par où commencer...</p>
+                <div class="comments">
+                    <h4>Commentaires</h4>
+                    <ul>
+                        <li>Luc P.: Je vous conseille de commencer par HTML, CSS, puis JavaScript.</li>
+                    </ul>
+                    <textarea placeholder="Ajoutez votre commentaire"></textarea>
+                    <button onclick="addComment('post2')">Commenter</button>
+                </div>
+            </div>
+        </section>
+        <section id="new-post">
+            <h2>Créer une nouvelle discussion</h2>
+            <form id="post-form">
+                <label for="post-title">Titre:</label>
+                <input type="text" id="post-title" name="post-title" required>
+                <label for="post-category">Catégorie:</label>
+                <select id="post-category" name="post-category">
+                    <option value="financement">Financement</option>
+                    <option value="technologie">Technologie</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="autre">Autre</option>
+                </select>
+                <label for="post-content">Contenu:</label>
+                <textarea id="post-content" name="post-content" required></textarea>
+                <button type="submit">Publier</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plateforme d'Entraide Participative. Tous droits réservés par SEO.</p>
+        <p>je remercie ceux qui non pas crue en moi ,meme si je l ecris mal en français,les gars vous nextElementSiblingune source d inspiration
+            pour moi, et svp continuez ça me faire plaisir
+        </p>
+    </footer>
+
+    <script>
+        function addComment(postId) {
+            const post = document.getElementById(postId);
+            const commentsList = post.querySelector('.comments ul');
+            const textarea = post.querySelector('.comments textarea');
+            const comment = textarea.value.trim();
+            
+            if (comment) {
+                const li = document.createElement('li');
+                li.textContent = `Anonyme: ${comment}`;
+                commentsList.appendChild(li);
+                textarea.value = '';
+            }
+        }
+
+        document.getElementById('post-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Nouvelle discussion créée ! (Fonctionnalité à implémenter)');
+        });
+    </script>
+</body>
+</html>

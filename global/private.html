@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Privé - Plateforme d'Entraide Participative</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Espace Privé</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="forum.html">Forum Public</a></li>
+                <li><a href="private.html">Espace Privé</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login">
+            <h2>se connecter à l'espace privé</h2>
+            <p>remplissez les champs et cliquer sur s inscrit pour accedera l interface securiser </p>
+            <form id="login-form">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="new-email">Email:</label>
+                <input type="email" id="new-email" name="new-email" required>
+                <label for="new-password">Mot de passe:</label>
+                <input type="password" id="new-password" name="new-password" required>
+                <label for="confirm-password">Confirmer le mot de passe:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <button type="submit">S inscrire</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plateforme d'Entraide Participative. Tous droits réservés par SEO.</p>
+        <p>je remercie melisa sans qui ce projet ne vera pas le jour</p>
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #090c23;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+        section {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.5rem;
+        }
+        input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d60a0a;
+        }
+        footer {
+            background-color: #090c23;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+            section {
+                width: 90%;
+            }
+        }
+    </style>
+
+    <script>
+        // 
+        function generateUniqueId() {
+            return Math.random().toString(36).substr(2, 9);
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userId = generateUniqueId();
+            window.location.href = `discussion.html?id=${userId}`;
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userId = generateUniqueId();
+            window.location.href = `discussion.html?id=${userId}`;
+        });
+        // 
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Connexion réussie ! (Fonctionnalité à implémenter)');
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Inscription réussie ! (Fonctionnalité à implémenter)');
+        });
+    </script>
+</body>
+</html>
